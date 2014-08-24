@@ -44,6 +44,7 @@ function startUp() {
 	ConWo.game.state.add("Preloader", ConWo.Scenes.Preloader);
 	ConWo.game.state.add("MainMenu", ConWo.Scenes.MainMenu);
 	ConWo.game.state.add("Game", ConWo.Scenes.Game);
+	ConWo.game.state.add("EndScreen", ConWo.Scenes.EndScreen);
 
     ConWo.game.state.start("Boot");
 }

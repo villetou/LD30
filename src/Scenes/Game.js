@@ -168,6 +168,9 @@ ConWo.Scenes.Game.prototype = {
 			ent: light
 		};
 
+		this.music = this.game.add.audio('sfx-music',0.4,true);
+		this.music.play();
+
 		ConWo.Effects.flash(this.game,1000);
 	},
 
@@ -258,8 +261,13 @@ ConWo.Scenes.Game.prototype = {
 	},
 
 	startEndSequence: function() {
+		this.game.state.start('EndScreen',this.timerValue.toFixed(2).toString());
 		//this.game.add.tween(this.ui.timeText.scale).to({x:2.0,y:2.0},1000,Phaser.Easing.Cubic.Out).start();
 		//this.game.add.tween(this.ui.timeText).to({x:this.ui.timeText.x-this.ui.timeText.textWidth},1000,Phaser.Easing.Cubic.Out).start();
+	},
+
+	shutdown: function() {
+		this.music.stop();
 	},
 
 	boxFromTo: function(from,to) {

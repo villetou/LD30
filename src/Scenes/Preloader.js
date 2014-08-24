@@ -40,6 +40,8 @@ ConWo.Scenes.Preloader.prototype = {
 		this.load.bitmapFont('fnt-futu','assets/fonts/font.png','assets/fonts/font.fnt');
 
 		// Sounds
+		this.game.load.audio('sfx-music', 'assets/sounds/ld30music.ogg');
+
 		this.game.load.audio('sfx-rus-death', 'assets/sounds/rus_death.ogg');
 		this.game.load.audio('sfx-rus-throw', 'assets/sounds/rus_throw.ogg');
 
