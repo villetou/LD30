@@ -5,9 +5,8 @@ ConWo.Scenes.Preloader = function (game) {
 ConWo.Scenes.Preloader.prototype = {
 
 	preload: function () {
-		this.preloaderBG = this.game.add.tileSprite(0, 0, this.game.world.width, this.game.world.height, 'preloader-bg');
-
-		this.preloaderBG.autoScroll(0,10);
+		
+		this.game.stage.backgroundColor = '#c73d5c';
 
 		this.loaderBG = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY,'loader-bg');
 		this.loaderBar = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY,'loader-bar');

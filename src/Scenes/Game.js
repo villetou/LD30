@@ -126,10 +126,10 @@ ConWo.Scenes.Game.prototype = {
 		};
 
 		this.arab.consumption = {
-			bananas: heavy,
+			bananas: medium,
 			vodka: light,
 			money: medium,
-			ent: superheavy
+			ent: heavy
 		};
 
 		this.arab.production = {
