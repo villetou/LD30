@@ -34,16 +34,31 @@ ConWo.Prefabs.Dude = function(game,x,y,spr) {
 	}
 
 	this.needGroup = game.add.group(this);
-	this.needGroup.y = -200;
-	this.needGroup.x = 100;
+	this.needGroup.y = -210;
+	this.needGroup.x = 140;
 
-	this.needSpritePadding = 30;
+	this.needIconGroup = game.add.group(this);
+	this.needIconGroup.y = -200;
+	this.needIconGroup.x = 100;
+
+	this.needSpritePadding = 60;
 
 	this.needSprites = {
 		bananas: game.add.sprite(0,this.needSpritePadding*0,'loader-bar',null,this.needGroup),
 		vodka: game.add.sprite(0,this.needSpritePadding*1,'loader-bar',null,this.needGroup),
 		money: game.add.sprite(0,this.needSpritePadding*2,'loader-bar',null,this.needGroup),
 		ent: game.add.sprite(0,this.needSpritePadding*3,'loader-bar',null,this.needGroup)
+	}
+
+	this.needIcons = {
+		banana: game.add.sprite(0,this.needSpritePadding*0,'spr-banana',null,this.needIconGroup),
+		vodka: game.add.sprite(0,this.needSpritePadding*1,'spr-vodka',null,this.needIconGroup),
+		money: game.add.sprite(0,this.needSpritePadding*2,'spr-money',null,this.needIconGroup),
+		ent: game.add.sprite(0,this.needSpritePadding*3,'spr-ent',null,this.needIconGroup)
+	}
+
+	for(key in this.needIcons) {
+		this.needIcons[key].anchor.set(0.5);
 	}
 
 	this.isAliveAndKicking = true;

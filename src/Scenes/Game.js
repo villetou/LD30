@@ -64,19 +64,19 @@ ConWo.Scenes.Game.prototype = {
 		this.asiaScreen.filters = [this.game.add.filter('Gray', this.game.width/2, this.game.height/2),this.game.add.filter('Black', this.game.width/2, this.game.height/2)];
 		this.peruScreen.filters = [this.game.add.filter('Gray', this.game.width/2, this.game.height/2),this.game.add.filter('Black', this.game.width/2, this.game.height/2)];
 
-		this.yank = new ConWo.Prefabs.Dude(this.game,this.game.world.width/4+10,this.game.world.height/2-100,'spr-yank');
+		this.yank = new ConWo.Prefabs.Dude(this.game,this.game.world.width/4-50,this.game.world.height/2-100,'spr-yank');
 		this.game.add.sprite(0,0,'spr-yankbg','',this.yankGroup);
 		this.yankGroup.add(this.yank);
 		
-		this.arab = new ConWo.Prefabs.Dude(this.game,this.game.world.width/4+10,this.game.world.height/2-100,'spr-arab');
+		this.arab = new ConWo.Prefabs.Dude(this.game,this.game.world.width/4-50,this.game.world.height/2-100,'spr-arab');
 		this.game.add.sprite(0,0,'spr-arabbg','',this.arabGroup);
 		this.arabGroup.add(this.arab);
 
-		this.asia = new ConWo.Prefabs.Dude(this.game,this.game.world.width/4+10,this.game.world.height/2-100,'spr-asia');
+		this.asia = new ConWo.Prefabs.Dude(this.game,this.game.world.width/4-50,this.game.world.height/2-100,'spr-asia');
 		this.game.add.sprite(0,0,'spr-asiabg','',this.asiaGroup);
 		this.asiaGroup.add(this.asia);
 
-		this.peru = new ConWo.Prefabs.Dude(this.game,this.game.world.width/4+10,this.game.world.height/2-100,'spr-peru');
+		this.peru = new ConWo.Prefabs.Dude(this.game,this.game.world.width/4-50,this.game.world.height/2-100,'spr-peru');
 		this.game.add.sprite(0,0,'spr-perubg','',this.peruGroup);
 		this.peruGroup.add(this.peru);
 

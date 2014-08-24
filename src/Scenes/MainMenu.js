@@ -37,6 +37,9 @@ ConWo.Scenes.MainMenu.prototype = {
 
 		this.startText = startText;
 		this.titleText = titleText;
+
+		this.music = this.game.add.audio('sfx-music-begin',0.4,true);
+		this.music.play();
 	},
 
 	transitionToState: function(state) {
@@ -44,6 +47,10 @@ ConWo.Scenes.MainMenu.prototype = {
 		var moveRight = this.game.add.tween(this.startText).to({x:this.game.world.width+20},1000,Phaser.Easing.Cubic.In).start();
 
 		moveLeft.onComplete.add(this.startGame, this, state);
+	},
+
+	shutdown: function() {
+		this.music.stop();
 	},
 
 	startGame: function() {

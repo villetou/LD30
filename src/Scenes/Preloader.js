@@ -27,6 +27,11 @@ ConWo.Scenes.Preloader.prototype = {
 		this.load.image('spr-arab', 'assets/sprites/cowo-assets/Arab.png');
 		this.load.image('spr-yank', 'assets/sprites/cowo-assets/Lankkari.png');
 
+		this.load.image('spr-vodka', 'assets/sprites/cowo-assets/vodka.png');
+		this.load.image('spr-money', 'assets/sprites/cowo-assets/money.png');
+		this.load.image('spr-banana', 'assets/sprites/cowo-assets/banana.png');
+		this.load.image('spr-ent', 'assets/sprites/cowo-assets/ent.png');
+
 		this.load.image('spr-perubg', 'assets/sprites/cowo-assets/perubg.png');
 		this.load.image('spr-asiabg', 'assets/sprites/cowo-assets/asiabg.png');
 		this.load.image('spr-arabbg', 'assets/sprites/cowo-assets/arabbg.png');
@@ -41,6 +46,8 @@ ConWo.Scenes.Preloader.prototype = {
 
 		// Sounds
 		this.game.load.audio('sfx-music', 'assets/sounds/ld30music.ogg');
+		this.game.load.audio('sfx-music-end', 'assets/sounds/ld30end.ogg');
+		this.game.load.audio('sfx-music-begin', 'assets/sounds/ld30begin.ogg');
 
 		this.game.load.audio('sfx-rus-death', 'assets/sounds/rus_death.ogg');
 		this.game.load.audio('sfx-rus-throw', 'assets/sounds/rus_throw.ogg');

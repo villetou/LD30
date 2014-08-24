@@ -44,6 +44,9 @@ ConWo.Scenes.EndScreen.prototype = {
 
 		ConWo.Effects.fadeOutWhite(this,{fromWhite:true});
 
+		this.music = this.game.add.audio('sfx-music-end',0.4);
+		this.music.play();
+
 		this.startText = startText;
 		this.titleText = titleText;
 	},
@@ -53,6 +56,10 @@ ConWo.Scenes.EndScreen.prototype = {
 		var moveRight = this.game.add.tween(this.startText).to({x:this.game.world.width+20},1000,Phaser.Easing.Cubic.In).start();
 
 		moveLeft.onComplete.add(this.startGame, this, state);
+	},
+
+	shutdown: function() {
+		this.music.stop();
 	},
 
 	startGame: function() {
