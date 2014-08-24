@@ -55,6 +55,20 @@ function goFullScreen() {
     ConWo.game.scale.startFullScreen(false);
 }
 
+ConWo.gofull = function() {
+
+    if (this.game.scale.isFullScreen)
+    {
+        this.game.scale.stopFullScreen();
+    }
+    else
+    {
+        this.game.scale.startFullScreen();
+    }
+
+}
+
+
 ConWo.Helpers = {};
 ConWo.Helpers.toggleDebugInfo = function() {
 	ConWo.Settings.debug = !ConWo.Settings.debug;

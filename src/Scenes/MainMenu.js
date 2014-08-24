@@ -10,12 +10,18 @@ ConWo.Scenes.MainMenu.prototype = {
 
 	create: function () {
 
+		var keyF = this.game.input.keyboard.addKey(Phaser.Keyboard.F);
+		keyF.onDown.add(ConWo.gofull,this);
+
 		this.menu = {};
 		this.menu.background = this.game.add.tileSprite(0,0,this.game.world.width, this.game.world.height,'');
 
 		this.menu.background.inputEnabled = true;
 
 		this.menu.background.events.onInputDown.add(this.transitionToState,this);
+
+		var fForFullScreen = this.game.add.bitmapText(0,0,'fnt-futu',"Press F for full screen!",48);
+		var fForFullScreen = this.game.add.bitmapText(0,40,'fnt-futu',"Try it at villetou.github.io/LD30/",48);
 
 		var titleText = this.game.add.bitmapText(this.game.world.centerX-8,-128,'fnt-futu',"Connected Worlds",128);
 		titleText.x -= titleText.textWidth/2;
@@ -37,6 +43,9 @@ ConWo.Scenes.MainMenu.prototype = {
 
 		this.startText = startText;
 		this.titleText = titleText;
+
+
+		ConWo.gofull
 
 		this.music = this.game.add.audio('sfx-music-begin',0.4,true);
 		this.music.play();

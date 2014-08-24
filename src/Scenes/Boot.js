@@ -21,6 +21,15 @@ ConWo.Scenes.Boot.prototype = {
 		this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 		this.game.scale.refresh();
 
+		// Stretch to fill
+    	this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
+
+		// Keep original size
+		// game.scale.fullScreenScaleMode = Phaser.ScaleManager.NO_SCALE;
+
+		// Maintain aspect ratio
+		// game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
+
 		// Setup filters
 		ConWo.filters = {};
 

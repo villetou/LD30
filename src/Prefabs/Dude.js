@@ -34,14 +34,14 @@ ConWo.Prefabs.Dude = function(game,x,y,spr) {
 	}
 
 	this.needGroup = game.add.group(this);
-	this.needGroup.y = -210;
+	this.needGroup.y = -240;
 	this.needGroup.x = 140;
 
 	this.needIconGroup = game.add.group(this);
-	this.needIconGroup.y = -200;
+	this.needIconGroup.y = -240;
 	this.needIconGroup.x = 100;
 
-	this.needSpritePadding = 60;
+	this.needSpritePadding = 90;
 
 	this.needSprites = {
 		bananas: game.add.sprite(0,this.needSpritePadding*0,'loader-bar',null,this.needGroup),
