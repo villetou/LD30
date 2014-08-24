@@ -31,6 +31,8 @@ ConWo.Scenes.Preloader.prototype = {
 		this.load.image('spr-asiabg', 'assets/sprites/cowo-assets/asiabg.png');
 		this.load.image('spr-arabbg', 'assets/sprites/cowo-assets/arabbg.png');
 		this.load.image('spr-yankbg', 'assets/sprites/cowo-assets/yankbg.png');
+		
+		this.load.image('spr-box', 'assets/sprites/cowo-assets/box.png');
 
 		this.load.image('spr-givekeys', 'assets/sprites/cowo-assets/giveKeys.png');
 		this.load.image('spr-boostkeys', 'assets/sprites/cowo-assets/boostKeys.png');

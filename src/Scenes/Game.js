@@ -56,6 +56,9 @@ ConWo.Scenes.Game.prototype = {
 		this.asiaGroup = this.game.add.group(null);
 		this.peruGroup = this.game.add.group(null);
 
+		this.boxGroup = this.game.add.group();
+		this.boxGroup.createMultiple(40, 'spr-box');
+
 		this.yankScreen.filters = [this.game.add.filter('Gray', this.game.width/2, this.game.height/2),this.game.add.filter('Black', this.game.width/2, this.game.height/2)];
 		this.arabScreen.filters = [this.game.add.filter('Gray', this.game.width/2, this.game.height/2),this.game.add.filter('Black', this.game.width/2, this.game.height/2)];
 		this.asiaScreen.filters = [this.game.add.filter('Gray', this.game.width/2, this.game.height/2),this.game.add.filter('Black', this.game.width/2, this.game.height/2)];
@@ -171,17 +174,17 @@ ConWo.Scenes.Game.prototype = {
 		this.keys.keyA.onDown.add(this.asia.boost, this.asia);
 		this.keys.keyS.onDown.add(this.arab.boost, this.arab);
 
-		this.keys.keyUP.onDown.add(function() {this.asia.giveTo(this.yank) }, this);
-		this.keys.keyUP.onDown.add(function() {this.arab.giveTo(this.peru) }, this);
+		this.keys.keyUP.onDown.add(function() { if(!this.asia.isAliveAndKicking && !this.yank.isAliveAndKicking) return; this.asia.giveTo(this.yank); this.boxFromTo(this.asiaScreen,this.yankScreen); }, this);
+		this.keys.keyUP.onDown.add(function() { if(!this.arab.isAliveAndKicking && !this.peru.isAliveAndKicking) return; this.arab.giveTo(this.peru); this.boxFromTo(this.arabScreen,this.peruScreen); }, this);
 
-		this.keys.keyDOWN.onDown.add(function() {this.yank.giveTo(this.asia) }, this);
-		this.keys.keyDOWN.onDown.add(function() {this.peru.giveTo(this.arab) }, this);
+		this.keys.keyDOWN.onDown.add(function() {if(!this.yank.isAliveAndKicking && !this.asia.isAliveAndKicking) return; this.yank.giveTo(this.asia); this.boxFromTo(this.yankScreen,this.asiaScreen); }, this);
+		this.keys.keyDOWN.onDown.add(function() {if(!this.peru.isAliveAndKicking && !this.arab.isAliveAndKicking) return; this.peru.giveTo(this.arab); this.boxFromTo(this.peruScreen,this.arabScreen); }, this);
 
-		this.keys.keyLEFT.onDown.add(function() {this.peru.giveTo(this.yank) }, this);
-		this.keys.keyLEFT.onDown.add(function() {this.arab.giveTo(this.asia) }, this);
+		this.keys.keyLEFT.onDown.add(function() {if(!this.peru.isAliveAndKicking && !this.yank.isAliveAndKicking) return; this.peru.giveTo(this.yank); this.boxFromTo(this.peruScreen,this.yankScreen); }, this);
+		this.keys.keyLEFT.onDown.add(function() {if(!this.arab.isAliveAndKicking && !this.asia.isAliveAndKicking) return; this.arab.giveTo(this.asia); this.boxFromTo(this.arabScreen,this.asiaScreen); }, this);
 
-		this.keys.keyRIGHT.onDown.add(function() {this.yank.giveTo(this.peru) }, this);
-		this.keys.keyRIGHT.onDown.add(function() {this.asia.giveTo(this.arab) }, this);
+		this.keys.keyRIGHT.onDown.add(function() {if(!this.yank.isAliveAndKicking && !this.peru.isAliveAndKicking) return; this.yank.giveTo(this.peru); this.boxFromTo(this.yankScreen,this.peruScreen); }, this);
+		this.keys.keyRIGHT.onDown.add(function() {if(!this.asia.isAliveAndKicking && !this.arab.isAliveAndKicking) return; this.asia.giveTo(this.arab); this.boxFromTo(this.asiaScreen,this.arabScreen); }, this);
 
 		this.createUI();
 
@@ -231,5 +234,15 @@ ConWo.Scenes.Game.prototype = {
 	startEndSequence: function() {
 		//this.game.add.tween(this.ui.timeText.scale).to({x:2.0,y:2.0},1000,Phaser.Easing.Cubic.Out).start();
 		//this.game.add.tween(this.ui.timeText).to({x:this.ui.timeText.x-this.ui.timeText.textWidth},1000,Phaser.Easing.Cubic.Out).start();
+	},
+
+	boxFromTo: function(from,to) {
+		if(this.boxGroup.countDead() > 0 && from && to) {
+			var box = this.boxGroup.getFirstDead();
+			box.reset(from.x+from.width/2, from.y+from.height/2);
+			var moveBox = this.game.add.tween(box).to({x:to.x+to.width/2, y:to.y+to.height/2,angle:380},400,Phaser.Easing.Linear.None);
+			moveBox.onComplete.add(function() { box.kill(); },this);
+			moveBox.start();
+		}
 	}
 }
