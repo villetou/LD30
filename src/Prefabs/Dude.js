@@ -28,6 +28,11 @@ ConWo.Prefabs.Dude = function(game,x,y,spr) {
 		ent: 0.1
 	}
 
+	this.sfx = {
+		'death': game.add.audio('sfx-dude-death',0.7),
+		'throw': game.add.audio('sfx-dude-throw',0.7)
+	}
+
 	this.needGroup = game.add.group(this);
 	this.needGroup.y = -200;
 	this.needGroup.x = 100;
@@ -72,6 +77,7 @@ ConWo.Prefabs.Dude.prototype.update = function() {
 
 	if(this.justDied) {
 		this.game.add.tween(this).to({angle:-90},800,Phaser.Easing.Cubic.In).start();
+		this.sfx.death.play();
 		this.justDied = false;
 	}
 }
@@ -91,4 +97,5 @@ ConWo.Prefabs.Dude.prototype.giveTo = function(otherDude) {
 			}
 		}	
 	}
+	//this.sfx.throw.play();
 }

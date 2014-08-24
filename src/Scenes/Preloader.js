@@ -38,7 +38,23 @@ ConWo.Scenes.Preloader.prototype = {
 		this.load.image('spr-boostkeys', 'assets/sprites/cowo-assets/boostKeys.png');
 
 		this.load.bitmapFont('fnt-futu','assets/fonts/font.png','assets/fonts/font.fnt');
-		
+
+		// Sounds
+		this.game.load.audio('sfx-rus-death', 'assets/sounds/rus_death.ogg');
+		this.game.load.audio('sfx-rus-throw', 'assets/sounds/rus_throw.ogg');
+
+		this.game.load.audio('sfx-dude-death', 'assets/sounds/dude_death.ogg');
+		this.game.load.audio('sfx-dude-throw', 'assets/sounds/dude_throw.ogg');
+
+		this.game.load.audio('sfx-yank-death', 'assets/sounds/yank_death.ogg');
+		this.game.load.audio('sfx-yank-throw', 'assets/sounds/yank_throw.ogg');
+
+		this.game.load.audio('sfx-arab-death', 'assets/sounds/arab_death.ogg');
+		this.game.load.audio('sfx-arab-throw', 'assets/sounds/arab_throw.ogg');
+
+		this.game.load.audio('sfx-peru-death', 'assets/sounds/peru_death.ogg');
+		this.game.load.audio('sfx-peru-throw', 'assets/sounds/peru_throw.ogg');
+
 		ConWo.Effects.fadeOutBlack(this);
 	},
 

@@ -80,6 +80,32 @@ ConWo.Scenes.Game.prototype = {
 		this.game.add.sprite(0,0,'spr-perubg','',this.peruGroup);
 		this.peruGroup.add(this.peru);
 
+		this.sfx = {
+			'throw': this.game.add.audio('sfx-dude-throw',0.7)
+		}
+
+		this.asia.sfx = {
+			'death': this.game.add.audio('sfx-rus-death',0.7),
+			'throw': this.game.add.audio('sfx-rus-throw',0.7)
+		}
+
+		this.arab.sfx = {
+			'death': this.game.add.audio('sfx-arab-death',0.7),
+			'throw': this.game.add.audio('sfx-arab-throw',0.7)
+		}
+
+		this.yank.sfx = {
+			'death': this.game.add.audio('sfx-yank-death',0.7),
+			'throw': this.game.add.audio('sfx-yank-throw',0.7)
+		}
+
+		this.peru.sfx = {
+			'death': this.game.add.audio('sfx-peru-death',0.7),
+			'throw': this.game.add.audio('sfx-peru-throw',0.7)
+		}
+
+		
+
 		var noprod = 0.0;
 		var light = 0.05;
 		var medium = 0.1;
@@ -238,6 +264,7 @@ ConWo.Scenes.Game.prototype = {
 
 	boxFromTo: function(from,to) {
 		if(this.boxGroup.countDead() > 0 && from && to) {
+			this.sfx.throw.play();
 			var box = this.boxGroup.getFirstDead();
 			box.reset(from.x+from.width/2, from.y+from.height/2);
 			var moveBox = this.game.add.tween(box).to({x:to.x+to.width/2, y:to.y+to.height/2,angle:380},400,Phaser.Easing.Linear.None);
