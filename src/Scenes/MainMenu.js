@@ -23,7 +23,7 @@ ConWo.Scenes.MainMenu.prototype = {
 		var fForFullScreen = this.game.add.bitmapText(0,0,'fnt-futu',"Press F for full screen!",48);
 		var fForFullScreen = this.game.add.bitmapText(0,40,'fnt-futu',"Try it at villetou.github.io/LD30/",48);
 
-		var titleText = this.game.add.bitmapText(this.game.world.centerX-8,-128,'fnt-futu',"Connected Worlds",128);
+		var titleText = this.game.add.bitmapText(this.game.world.centerX-8,-128,'fnt-futu',"Connected Nations",128);
 		titleText.x -= titleText.textWidth/2;
 
 		var startText = this.game.add.bitmapText(this.game.world.centerX,this.game.world.height,'fnt-futu',"Click to Start",64);
