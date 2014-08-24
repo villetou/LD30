@@ -21,7 +21,7 @@ ConWo.Scenes.EndScreen.prototype = {
 
 		this.menu.background.events.onInputDown.add(this.transitionToState,this);
 
-		var titleText = this.game.add.bitmapText(this.game.world.centerX-8,-128,'fnt-futu',"You survived",128);
+		var titleText = this.game.add.bitmapText(this.game.world.centerX-8,-128,'fnt-futu',"You survived",86);
 		titleText.x -= titleText.textWidth/2;
 
 		var startText = this.game.add.bitmapText(this.game.world.centerX,this.game.world.height,'fnt-futu', this.survived + " seconds",64);
