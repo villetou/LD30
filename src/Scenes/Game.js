@@ -261,13 +261,14 @@ ConWo.Scenes.Game.prototype = {
 	},
 
 	startEndSequence: function() {
-		this.game.state.start('EndScreen',this.timerValue.toFixed(2).toString());
+		this.game.state.start('EndScreen',false,false,(this.timerValue/1000).toFixed(2).toString());
 		//this.game.add.tween(this.ui.timeText.scale).to({x:2.0,y:2.0},1000,Phaser.Easing.Cubic.Out).start();
 		//this.game.add.tween(this.ui.timeText).to({x:this.ui.timeText.x-this.ui.timeText.textWidth},1000,Phaser.Easing.Cubic.Out).start();
 	},
 
 	shutdown: function() {
 		this.music.stop();
+		this.ui.group.destroy(true);
 	},
 
 	boxFromTo: function(from,to) {
