@@ -174,17 +174,17 @@ ConWo.Scenes.Game.prototype = {
 		this.keys.keyA.onDown.add(this.asia.boost, this.asia);
 		this.keys.keyS.onDown.add(this.arab.boost, this.arab);
 
-		this.keys.keyUP.onDown.add(function() { if(!this.asia.isAliveAndKicking && !this.yank.isAliveAndKicking) return; this.asia.giveTo(this.yank); this.boxFromTo(this.asiaScreen,this.yankScreen); }, this);
-		this.keys.keyUP.onDown.add(function() { if(!this.arab.isAliveAndKicking && !this.peru.isAliveAndKicking) return; this.arab.giveTo(this.peru); this.boxFromTo(this.arabScreen,this.peruScreen); }, this);
+		this.keys.keyUP.onDown.add(function() { if(!this.asia.isAliveAndKicking || !this.yank.isAliveAndKicking) return; this.asia.giveTo(this.yank); this.boxFromTo(this.asiaScreen,this.yankScreen); }, this);
+		this.keys.keyUP.onDown.add(function() { if(!this.arab.isAliveAndKicking || !this.peru.isAliveAndKicking) return; this.arab.giveTo(this.peru); this.boxFromTo(this.arabScreen,this.peruScreen); }, this);
 
-		this.keys.keyDOWN.onDown.add(function() {if(!this.yank.isAliveAndKicking && !this.asia.isAliveAndKicking) return; this.yank.giveTo(this.asia); this.boxFromTo(this.yankScreen,this.asiaScreen); }, this);
-		this.keys.keyDOWN.onDown.add(function() {if(!this.peru.isAliveAndKicking && !this.arab.isAliveAndKicking) return; this.peru.giveTo(this.arab); this.boxFromTo(this.peruScreen,this.arabScreen); }, this);
+		this.keys.keyDOWN.onDown.add(function() {if(!this.yank.isAliveAndKicking || !this.asia.isAliveAndKicking) return; this.yank.giveTo(this.asia); this.boxFromTo(this.yankScreen,this.asiaScreen); }, this);
+		this.keys.keyDOWN.onDown.add(function() {if(!this.peru.isAliveAndKicking || !this.arab.isAliveAndKicking) return; this.peru.giveTo(this.arab); this.boxFromTo(this.peruScreen,this.arabScreen); }, this);
 
-		this.keys.keyLEFT.onDown.add(function() {if(!this.peru.isAliveAndKicking && !this.yank.isAliveAndKicking) return; this.peru.giveTo(this.yank); this.boxFromTo(this.peruScreen,this.yankScreen); }, this);
-		this.keys.keyLEFT.onDown.add(function() {if(!this.arab.isAliveAndKicking && !this.asia.isAliveAndKicking) return; this.arab.giveTo(this.asia); this.boxFromTo(this.arabScreen,this.asiaScreen); }, this);
+		this.keys.keyLEFT.onDown.add(function() {if(!this.peru.isAliveAndKicking || !this.yank.isAliveAndKicking) return; this.peru.giveTo(this.yank); this.boxFromTo(this.peruScreen,this.yankScreen); }, this);
+		this.keys.keyLEFT.onDown.add(function() {if(!this.arab.isAliveAndKicking || !this.asia.isAliveAndKicking) return; this.arab.giveTo(this.asia); this.boxFromTo(this.arabScreen,this.asiaScreen); }, this);
 
-		this.keys.keyRIGHT.onDown.add(function() {if(!this.yank.isAliveAndKicking && !this.peru.isAliveAndKicking) return; this.yank.giveTo(this.peru); this.boxFromTo(this.yankScreen,this.peruScreen); }, this);
-		this.keys.keyRIGHT.onDown.add(function() {if(!this.asia.isAliveAndKicking && !this.arab.isAliveAndKicking) return; this.asia.giveTo(this.arab); this.boxFromTo(this.asiaScreen,this.arabScreen); }, this);
+		this.keys.keyRIGHT.onDown.add(function() {if(!this.yank.isAliveAndKicking || !this.peru.isAliveAndKicking) return; this.yank.giveTo(this.peru); this.boxFromTo(this.yankScreen,this.peruScreen); }, this);
+		this.keys.keyRIGHT.onDown.add(function() {if(!this.asia.isAliveAndKicking || !this.arab.isAliveAndKicking) return; this.asia.giveTo(this.arab); this.boxFromTo(this.asiaScreen,this.arabScreen); }, this);
 
 		this.createUI();
 
